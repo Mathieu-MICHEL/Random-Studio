@@ -80,6 +80,24 @@
   }
 }
 
+.background-header {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 10rem 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(222, 206, 187, 1) 100%, #000 100%), url("../assets/Header.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+
+}
+
+.products-section {
+  background-image: url("../assets/Background1.jpg"); 
+  padding: 10rem 0;
+}
+
 body {
   margin: 0;
   font-family: "Helvetica Neue";
@@ -11592,6 +11610,23 @@ body {
   max-width: 30rem;
   font-size: 1.5rem;
 }
+
+.background-header h1, .background-header .h1 {
+  font-family: "Helvetica Neue";
+  font-size: 3rem;
+  line-height: 3rem;
+  letter-spacing: 0.8rem;
+  background: rgba(255, 255, 255);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+.background-header h2, .background-header .h2 {
+  text-align: center;
+  max-width: 30rem;
+  font-size: 3rem;
+}
+
 @media (min-width: 768px) {
   .masthead h1, .masthead .h1 {
     font-size: 4rem;
