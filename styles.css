@@ -1,0 +1,208 @@
+
+
+
+/*************************************************************************************************/
+/* General Styling */
+
+body, h1, h2, p, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Garet';
+}
+
+body {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+}
+
+
+.main-layout {
+    display: flex;
+    width: 100%;
+    height: 100%; /* Match full height of the viewport */
+}
+
+.left-column, .right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.left-column {
+    width: 20%; /* Adjust width as needed */
+    overflow: auto; /* Scroll if content overflows */
+}
+
+.right-column {
+    width: 80%; /* Adjust width as needed */
+    overflow: hidden; /* Hide overflow to maintain layout */
+}
+
+
+
+/*************************************************************************************************/
+/* Left Sections */
+
+
+/* Logo */
+.logo-img {
+    width: 18vw; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start; /* Align links to the left */
+    padding: 1vw;
+    height: 100%; /* Full height of the left column */  
+}
+
+.navbar a {
+    display: block;
+    padding: 2vh;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #bcbcbc;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #000000;
+}
+
+
+.navbar .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ensure full width */
+}
+
+
+.nav-item {
+    padding: 0.5vw;
+}
+
+.nav-item a {
+    padding: 0.5vh;
+}
+
+
+/* Modal container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%; /* Adjust width as needed */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+
+.nav-item > a:hover {
+    color: #bcbcbc; /* Keep the color consistent */
+}
+
+
+.sub-menu {
+    padding-left: 20px; /* Indent sub-level links */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Active sub-menu item */
+.sub-menu a.active {
+    color: #000000; /* Same as hover */
+}
+
+
+.social-icons {
+    display: flex;
+}
+
+.social-icons i {
+    display: inline-block; /* Ensures icons are aligned inline */
+    font-size: 28px; /* Adjust size as needed */
+}
+
+
+.footer .container{
+    text-align: center;
+    color: #bcbcbc;
+}
+
+
+
+/*************************************************************************************************/
+/* Right Sections */
+
+
+/* Updated slider styling */
+.slider {
+    width: 99%; /* Full width of the container */
+    height: 91vh; /* Full viewport height */    
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 100%; /* Full width of each slide */
+    height: 100%; /* Full height of the container */
+    opacity: 0; /* Start hidden */
+    transition: opacity 2s ease-in-out; /* Smooth fade effect */
+}
+
+.slide img {
+    width: 100%; /* Image should fill the width of the slide */
+    height: 100%; /* Image should fill the height of the container */
+    object-fit: cover; /* Ensures image covers the entire slide without distortion */
+    display: block;
+}
+

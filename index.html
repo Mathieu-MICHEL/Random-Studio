@@ -1,206 +1,110 @@
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Random STUDIO</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top"><img class="img-fluid" src="assets/favicon.ico" alt="..." width="60" height="60" /></a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#Gallery">Gallery</a></li>
-                        <!-- <li class="nav-item"><a class="nav-link" href="#projects">Products</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="catalogue.html">Catalogue</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="https://anchor.fm/csbbpodcast">Podcast</a></li> -->
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Masthead-->
-        
-        
-     	<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               TITLE                                     * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        
-        
-        <header class="masthead">
-            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-                <div class="d-flex justify-content-left">
-                    <div class="text-left">           
-                        <h1 class="mx-auto my-0">random studio</h1>
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Interior Design | Unique Items | Made in Rwanda</h2>
-                        <a class="btn btn-primary" href="#Gallery">discover our work</a>
-                    </div>
-                </div>
-            </div>
-        </header>
-        
-        
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        
-        
-        <!-- About-->
-        <section class="about-section text-center" id="Gallery">
-            <div class="container px-4 px-lg-5">
-                <!-- <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2 class="text-grey mb-4">Our Project</h2>
-                        <p class="text-grey-50">Interior Design, Creativity & Local Products. Our mission is to make a beautiful space where people, friends and newcomers alike, can find inspiration, and great products at a fair price.
-                        </p>
-                    </div>
-                </div> -->
-                <!-- <img class="img-fluid" src="assets/img/background.png" alt="..." /> -->
-                <img class="img-fluid " src="assets/img/Gallery1.png" alt="..." />
-            </div>
-        </section>
-        <!-- Projects-->
-        <!-- <section class="projects-section bg-light" id="projects">
-            <div class="container px-4 px-lg-5">
-                 -->
+<head>
+    <title>RANDOM Studio</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/garet" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
 
+<body>
 
-                <!-- Project One Row-->
-<!--                 
-                <div class="row gx-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-01.jpg" alt="..." /></div>
-                    <div class="col-lg-6 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white">IN-HOUSE CREATIONS</h4>
-                                    <p class="mb-0 text-white-50">Creative ideas made reality by our very own in-house interior designer: unique pieces of decoration, clothing line, & more.</p>
-                                    <hr class="d-none d-lg-block mb-0 me-0" />
-                                </div>
+    <div class="main-layout">
+        <!-- Left Side -->
+        <div class="left-column">
+            <div class="container">
+                <img src="assets/RANDOM-icon.png" alt="RANDOMLogo" class="logo-img">    
+            </div>
+            <!-- Navigation Bar -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="nav-links">
+                        <a href="#about" id="about-link">About Us</a>
+                        <div class="nav-item">
+                            <a>Portfolio</a>
+                            <div class="sub-menu">
+                                <a href="#slide1" id="link-slide1" onclick="showSpecificSlide('slide1')">Afrix</a>
+                                <a href="#slide2" id="link-slide2" onclick="showSpecificSlide('slide2')">RANDOM Studio</a>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="..." /></div>
-                    <div class="col-lg-6">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white">RWANDAN CRAFT</h4>
-                                    <p class="mb-0 text-white-50">Selection of amazing local products from rural cooperatives and artisans.</p>
-                                    <hr class="d-none d-lg-block mb-0 ms-0" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- Project Two Row-->
-                <!-- <div class="row gx-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-03.jpg" alt="..." /></div>
-                    <div class="col-lg-6 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white">KIGALI PARTNERS</h4>
-                                    <p class="mb-0 text-white-50">We also sell great products from friends and partners, come discover them first at RANDOM Studio!</p>
-                                    <hr class="d-none d-lg-block mb-0 me-0" />
-                                </div>
-                            </div>
+                        <a href="#contact" id="contact-link">Contact</a>
+                        <div class="social-icons">
+                            <a href="https://www.instagram.com/randomstudiorw/"><i class="fab fa-instagram""></i></a>
+                            <a href="https://web.facebook.com/Randomstudiio"><i class="fab fa-facebook""></i></a>
                         </div>
                     </div>
                 </div>
+            </nav>
+
+        <!-- Modal Structure -->
+        <div id="aboutModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>About RANDOM Studio</h2>
+                <p>
+                We started in 2022 as an Interior Design studio, blending Rwandan crafts and production of original items in-house. 
+                We work as contractor on interior design projects for individuals and companies, and you can purchase some of our decoration items on demand.
+                </p>
+                <p>
+                If you want to know more, meet us or are interested in contracting us, please feel free to connect using the Contact button or directly through Social Media.
+                </p>
+                <p> 
+                Best,
+                </p>
+                <p>
+                RANDOM Studio Team
+                </p>
             </div>
+        </div>
+
+        <div id="contactModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Contact RANDOM Studio</h2>
+                <p>
+                Thank you for your interest, you can reach us:
+                <ul>
+                    <li> by email <a href="mailto:randomstudiorw@gmail.com">randomstudiorw@gmail.com</a>, or </li>
+                    <li> by call/WhatsApp <strong>+250 (0) 786 684 168</strong>.</li>
+                </ul>
+                </p> 
+                <p>Looking forward to hearing from you!</p>
+                <p>Best,</p>
+                <p>
+                RANDOM Studio Team
+                </p>
+            </div>
+        </div>
+
         
-        <hr>
-        <hr>
-        <hr>
-            <div class="d-flex justify-content-center">
-            	<div class="text-center">           
-               <a class="btn btn-primary" href="catalogue.html">Full Catalogue</a>
-               </div>
-            </div>
-            
-            
-        </section> -->
 
-        <!-- Contact-->
-        <section class="contact-section bg-black" id="contact">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5"></div>
-                <div class="card-group">
-
-                    <!-- Address -->
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-map-marked-alt text-primary mb-2"></i>                                
-                            <h4 class="text-uppercase m-0">Address</h4>
-                            <div class="small text-black-50">KG696 St #3, Kacyiru, Kigali, Rwanda</div>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="card">
-                        <!-- Email -->
-                        <div class="card-body text-center">
-                            <i class="fas fa-envelope text-primary mb-2"></i>
-                            <h4 class="text-uppercase m-0">Email</h4>
-                            <div class="small text-black-50"><a href="mailto:randomstudiorw@gmail.com">randomstudiorw@gmail.com</a></div>	                              
-                        </div>
-                        <!-- Phone -->
-                        <div class="card-body text-center">
-                            <i class="fas fa-mobile-alt text-primary mb-2"></i>                                                            
-                            <h4 class="text-uppercase m-0">Phone</h4>
-                            <div class="small text-black-50">+250 (0) 78-668-4168</div>
-                        </div>
-                    </div>   
-                   
-                    <!-- Book a Call Calendly -->
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-calendar-alt text-primary mb-2"></i>                             
-                            <h4 class="text-uppercase m-0">Book a call</h4>
-                            <!-- Calendly inline widget begin -->
-                            <div class="calendly-inline-widget" data-url="https://calendly.com/mathieu-michel-5mwp/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:400px;"></div>
-                            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                            <!-- Calendly inline widget end -->
-                        </div>
-                    </div>
-        
-                </div>
-
-                <div class="social d-flex justify-content-center">
-                    <!-- <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a> -->
-                    <!-- <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a> -->
-                    <a class="mx-2" href="https://www.instagram.com/randomstudiorw/"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </section>
         <!-- Footer-->
-        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Random Studio 2024</div></footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+        <footer class="footer"><div class="container">Copyright &copy; Random Studio 2024</div></footer>
+
+        </div>
+
+        <!-- Right Side -->
+        <!-- Picture Slider Section -->
+        <div class="right-column">
+        <section id="portfolio" class="slider-section">
+        <h2 id="slider-header">OUR WORK</h2>
+        <div class="slider">
+            <div class="slides">
+                <div class="slide" id="slide1" data-header="Afrix Project"><img src="assets/Project1.png" alt="Afrix"></div>
+                <div class="slide" id="slide2" data-header="RANDOM Studio Project"><img src="assets/Project2.png" alt="RANDOM Studio"></div>
+                <!-- Add more slides as needed -->
+            </div>
+        </div>
+        </section>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    
+</body>
+
 </html>
