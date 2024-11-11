@@ -9,6 +9,7 @@ body, h1, h2, p, a {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Garet';
+    font-weight: lighter;
 }
 
 body {
@@ -99,6 +100,8 @@ body {
 }
 
 
+
+/*************************************************************************************************/
 /* Modal container */
 .modal {
     display: none; /* Hidden by default */
@@ -114,28 +117,81 @@ body {
 
 /* Modal content */
 .modal-content {
-    background-color: #fff;
+    background-color: #f7f7f7; /* Soft background color */
     margin: 10% auto;
-    padding: 20px;
-    border-radius: 8px;
-    width: 50%; /* Adjust width as needed */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    border-radius: 12px;
+    width: 85%; /* Full width on desktop */
+    max-width: 600px; /* Cap the maximum width */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+    font-family: 'Garet';
+    position: relative;
+    overflow: hidden; /* Hide any overflow */
+    background-image: linear-gradient(white 0%, transparent 60%, #f0f0f0 100%);
+    background-size: cover;
 }
+
+/* Add an artsy border */
+.modal-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, black, black, black); /* Gradient border effect */
+    border-radius: 12px 12px 0 0;
+}
+
 
 /* Close button */
 .close {
-    color: #aaa;
     float: right;
-    font-size: 28px;
-    font-weight: bold;
+    color: #bcbcbc;
+    font-size: 50px;
+    font-weight: lighter;
+    position: absolute;
+    top: 0px;
+    right: 15px;
     cursor: pointer;
+    transition: color 0.3s;
 }
 
 .close:hover,
 .close:focus {
-    color: #000;
-    text-decoration: none;
+    color: black;
 }
+
+/* Typography updates */
+.modal-content h2 {
+    font-size: 2rem;
+    color: #bcbcbc;
+    font-weight: lighter;
+    letter-spacing: 6px;
+    margin-bottom: 15px;
+    text-align: center; /* Center-align the header */
+}
+
+.modal-content p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Add decorative elements */
+.modal-content::after {
+    content: "✦";
+    display: block;
+    font-size: 3rem;
+    color: black;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+/*************************************************************************************************/
+/* Submenu, Social & Footer */
 
 
 .nav-item > a:hover {
@@ -205,4 +261,79 @@ body {
     object-fit: cover; /* Ensures image covers the entire slide without distortion */
     display: block;
 }
+
+
+
+/*************************************************************************************************/
+/* Mobile-first styles */
+
+
+@media only screen and (max-width: 768px) {
+    /* Adjust the main layout to a vertical stack */
+    .main-layout {
+        flex-direction: column;
+    }
+
+    .left-column, .right-column, .footer {
+        width: 100%; /* Full width on mobile */
+    }
+
+    /* Reorder the layout to place the footer below the right-column (slider) */
+    .right-column {
+        order: 1; /* Place the slider section first */
+    }
+
+    .footer {
+        order: 2; /* Move the footer below the slider */
+        margin-top: 2vh; /* Add some space above the footer */
+    }
+
+    .left-column {
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+    }
+
+    /* Adjust the navigation bar */
+    .navbar {
+        padding: 2vw;
+        align-items: center; /* Center the links */
+    }
+
+    .nav-links a {
+        padding: 1vh; /* Reduce padding */
+        font-size: 4vw; /* Adjust font size */
+    }
+
+    .logo-img {
+        width: 40vw; /* Resize logo for smaller screens */
+    }
+
+    .social-icons i {
+        font-size: 20px; /* Resize icons */
+    }
+
+    /* Adjust modal for smaller screens */
+    .modal-content {
+        width: 90%; /* Full width on mobile */
+        padding: 10px;
+    }
+
+    /* Adjust slider section */
+    .slider {
+        height: 50vh; /* Reduce height for better fit */
+    }
+
+    .slide img {
+        object-fit: contain; /* Fit images proportionally */
+    }
+
+    /* Footer adjustments */
+    .footer .container {
+        font-size: 3vw; /* Smaller font */
+        color: white;
+    }
+}
+
+
+
 
