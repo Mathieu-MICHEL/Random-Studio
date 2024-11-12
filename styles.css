@@ -29,18 +29,23 @@ body {
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
-    padding-top: 2vh;
     padding-bottom: 2vh;
 }
 
 .left-column {
-    width: 20%; /* Adjust width as needed */
+    width: 27%; /* Adjust width as needed */
     overflow: auto; /* Scroll if content overflows */
+    padding-top: 4vh;
+    padding-bottom: 2vh;
+    padding-left: 4vh;
 }
 
 .right-column {
-    width: 80%; /* Adjust width as needed */
+    width: 73%; /* Adjust width as needed */
     overflow: hidden; /* Hide overflow to maintain layout */
+    padding-top: 12vh;
+    padding-bottom: 4vh;
+    padding-right: 4vh;
 }
 
 
@@ -51,7 +56,7 @@ body {
 
 /* Logo */
 .logo-img {
-    width: 18vw; /* Adjust size as needed */
+    width: 14vw; /* Adjust size as needed */
     height: auto; /* Maintain aspect ratio */
 }
 
@@ -71,6 +76,7 @@ body {
     padding: 2vh;
     text-decoration: none;
     transition: background 0.3s;
+    font-size: small;
 }
 
 .nav-links a {
@@ -96,7 +102,7 @@ body {
 }
 
 .nav-item a {
-    padding: 0.5vh;
+    padding: 0.5vw;
 }
 
 
@@ -200,7 +206,7 @@ body {
 
 
 .sub-menu {
-    padding-left: 20px; /* Indent sub-level links */
+    padding-left: 0vh; /* Indent sub-level links */
     display: flex;
     flex-direction: column;
 }
@@ -222,8 +228,11 @@ body {
 
 
 .footer .container{
-    text-align: center;
+    text-align: left;
     color: #bcbcbc;
+    font-size: small;
+    padding-bottom: 4vh;
+    padding-left: 4vh;
 }
 
 
@@ -235,7 +244,7 @@ body {
 /* Updated slider styling */
 .slider {
     width: 99%; /* Full width of the container */
-    height: 91vh; /* Full viewport height */    
+    height: 83vh; /* Full viewport height */    
     overflow: hidden;
     position: relative;
 }
