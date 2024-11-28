@@ -19,24 +19,28 @@
             <div class="container">
                 <img src="assets/RANDOM-icon.png" alt="RANDOMLogo" class="logo-img">    
             </div>
-            <!-- Navigation Bar -->
-            <nav class="navbar">
+            <!-- Hamburger Menu -->
+            <div class="hamburger-menu" onclick="toggleNavbar()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav class="navbar" id="navbar"> <!-- Navigation Bar -->
                 <div class="container">
                     <div class="nav-links">
-                        <a href="#about" id="about-link">About</a>
+                        <div class="nav-item0"><a href="#about" id="about-link">About</a></div> 
                         <div class="nav-item">
                             <a>Portfolio</a>
                             <div class="sub-menu">
-                                <a href="#slide1" id="link-slide1" onclick="showSpecificSlide('slide1')">Afrix</a>
-                                <a href="#slide2" id="link-slide2" onclick="showSpecificSlide('slide2')">RANDOM Studio</a>
-                            </div>
+                                <a href="#" id="link-slide1" onclick="showSpecificSlide('slide1', event)">Afrix</a>
+                                <a href="#" id="link-slide2" onclick="showSpecificSlide('slide2', event)">RANDOM Studio</a>
+                            </div>                            
                         </div>
-                        <a href="#contact" id="contact-link">Contact</a>
+                        <div class="nav-item0"><a href="#store" id="store-link"><i>Store (coming soon)</i></a></div>
+                        <div class="nav-item0"><a href="#contact" id="contact-link">Contact</a></div>
                         <div class="social-icons">
                             <a href="https://www.instagram.com/randomstudiorw/"><i class="fab fa-instagram""></i></a>
                             <a href="https://web.facebook.com/Randomstudiio"><i class="fab fa-facebook""></i></a>
                             <a href="https://www.pinterest.com/studiorandomrw/"><i class="fab fa-pinterest""></i></a>
-                            <a href="https://www.tiktok.com/@randomstudiorw"><i class="fab fa-tiktok""></i></a>
+                            <!-- <a href="https://www.tiktok.com/@randomstudiorw"><i class="fab fa-tiktok""></i></a> -->
                         </div>
                     </div>
                 </div>
@@ -80,10 +84,8 @@
             </div>
         </div>
 
-        
-
-        <!-- Footer-->
-        <footer class="footer"><div class="container">Copyright &copy; Random Studio 2024</div></footer>
+        <!-- Footer for Desktop-->
+        <div class="footer0">Copyright &copy; Random Studio 2024</div>
 
         </div>
 
@@ -101,6 +103,21 @@
         </div>
         </section>
         </div>
+
+        
+
+        <!-- Footer-->
+        <footer class="footer">
+            <div class="nav-links">
+            <!-- Social Media Section Above Footer (Visible only on Mobile) -->
+                <div class="social-icons-mobile">
+                    <a href="mailto:randomstudiorw@gmail.com"><i class="fas fa-envelope-open"></i></a>
+                    <a href="https://www.instagram.com/randomstudiorw/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://web.facebook.com/Randomstudiio"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.pinterest.com/studiorandomrw/"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="container">Copyright &copy; Random Studio 2024</div></footer>
     </div>
 
     <script src="scripts.js"></script>

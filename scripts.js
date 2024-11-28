@@ -1,92 +1,114 @@
-
-// JavaScript for animations and interactions
 document.addEventListener('DOMContentLoaded', () => {
-    // Add any interactive behavior or animation setup here
     console.log("Website loaded successfully");
-});
 
-
-document.addEventListener('DOMContentLoaded', () => {
+    // Slideshow functionality
     const slides = document.querySelectorAll('.slide');
     let currentIndex = 0;
+    let slideshowInterval;
 
+    // Display a specific slide
     function showSlide(index) {
         slides.forEach((slide, i) => {
-            slide.style.opacity = i === index ? '1' : '0'; // Set current slide visible, others hidden
+            slide.style.opacity = i === index ? '1' : '0'; // Show only the active slide
         });
     }
 
+    // Move to the next slide
     function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
+        currentIndex = (currentIndex + 1) % slides.length; // Loop through slides
         showSlide(currentIndex);
     }
 
-    // Initial display
-    showSlide(currentIndex);
-
-    // Change slide every 5 seconds (adjust as needed)
-    setInterval(nextSlide, 6000);
-});
-
-function showSpecificSlide(slideId) {
-    const slides = document.querySelectorAll('.slide');
-    slides.forEach(slide => {
-        slide.style.opacity = '0'; // Hide all slides
-        slide.style.zIndex = '0';  // Move slides to the back
-    });
-
-    const targetSlide = document.getElementById(slideId);
-    if (targetSlide) {
-        targetSlide.style.opacity = '1'; // Show the target slide
-        targetSlide.style.zIndex = '1';  // Bring it to the front
+    // Start the slideshow
+    function startSlideshow() {
+        slideshowInterval = setInterval(nextSlide, 6000); // 6-second interval
     }
-}
 
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('aboutModal');
+    // Stop the slideshow
+    function stopSlideshow() {
+        clearInterval(slideshowInterval);
+    }
+
+    // Function to display a specific slide by ID
+    function showSpecificSlide(slideId, event) {
+        if (event) event.preventDefault(); // Prevent default link behavior
+        stopSlideshow(); // Pause the slideshow
+
+        slides.forEach((slide) => {
+            slide.style.opacity = slide.id === slideId ? '1' : '0'; // Highlight the requested slide
+        });
+
+        // Smooth scroll to the specific slide
+        const slideElement = document.getElementById(slideId);
+        slideElement?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Setup slideshow
+    if (slides.length > 0) {
+        showSlide(currentIndex);
+        startSlideshow();
+    }
+
+    // Add event listeners for sub-menu links
+    document.getElementById('link-slide1')?.addEventListener('click', (e) => {
+        showSpecificSlide('slide1', e);
+    });
+
+    document.getElementById('link-slide2')?.addEventListener('click', (e) => {
+        showSpecificSlide('slide2', e);
+    });
+
+    // Modal functionality for the "About" section
+    const aboutModal = document.getElementById('aboutModal');
     const aboutLink = document.getElementById('about-link');
-    const closeButton = document.querySelector('.modal .close');
+    const aboutCloseButton = aboutModal?.querySelector('.close');
 
-    // Show modal when the "About" link is clicked
-    aboutLink.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent default anchor behavior
-        modal.style.display = 'block';
+    aboutLink?.addEventListener('click', (event) => {
+        event.preventDefault();
+        aboutModal.style.display = 'block';
     });
 
-    // Close modal when the "X" button is clicked
-    closeButton.addEventListener('click', () => {
-        modal.style.display = 'none';
+    aboutCloseButton?.addEventListener('click', () => {
+        aboutModal.style.display = 'none';
     });
 
-    // Close modal when clicking outside the modal content
     window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
+        if (event.target === aboutModal) {
+            aboutModal.style.display = 'none';
         }
     });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
+    // Modal functionality for the "Contact" section
     const contactModal = document.getElementById('contactModal');
     const contactLink = document.getElementById('contact-link');
-    const closeButton = contactModal.querySelector('.close');
+    const contactCloseButton = contactModal?.querySelector('.close');
 
-    // Show modal when the "Contact" link is clicked
-    contactLink.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent default anchor behavior
+    contactLink?.addEventListener('click', (event) => {
+        event.preventDefault();
         contactModal.style.display = 'block';
     });
 
-    // Close modal when the "X" button is clicked
-    closeButton.addEventListener('click', () => {
+    contactCloseButton?.addEventListener('click', () => {
         contactModal.style.display = 'none';
     });
 
-    // Close modal when clicking outside the modal content
     window.addEventListener('click', (event) => {
         if (event.target === contactModal) {
             contactModal.style.display = 'none';
         }
     });
-});
 
+    // Navbar active link styling
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+        link.addEventListener('click', () => {
+            document.querySelector('.nav-links a.active')?.classList.remove('active');
+            link.classList.add('active');
+        });
+    });
+
+    // Navbar toggle functionality
+    const navbar = document.getElementById('navbar');
+    document.querySelector('.hamburger-menu')?.addEventListener('click', () => {
+        navbar?.classList.toggle('active');
+    });
+});

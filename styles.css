@@ -20,8 +20,9 @@ body {
 
 .main-layout {
     display: flex;
-    width: 100%;
-    height: 100%; /* Match full height of the viewport */
+    flex-wrap: wrap; /* Allow items to wrap */
+    width: 100vw;
+    height: 100vh; /* Match full height of the viewport */
 }
 
 .left-column, .right-column {
@@ -29,25 +30,46 @@ body {
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
+    height: 96vh; /* Adjust height dynamically */
 }
 
 .left-column {
-    width: 27%; /* Adjust width as needed */
+    width: 30vw; /* Adjust width as needed */
     overflow: auto; /* Scroll if content overflows */
-    padding-top: 4vh;
-    padding-bottom: 2vh;
+    padding-top: 3vh;
+    padding-bottom: 1vh;
     padding-left: 4vh;
+    order: 1; /* Place it below the columns */
 }
 
 .right-column {
-    width: 73%; /* Adjust width as needed */
+    width: 70vw; /* Adjust width as needed */
     overflow: hidden; /* Hide overflow to maintain layout */
     padding-top: 12vh;
     padding-bottom: 4vh;
     padding-right: 4vh;
+    order: 2; /* Place it below the columns */
 }
 
+.footer {
+    width: 100vw; /* Make footer span the full width */
+    height: 4vh;
+    order: 4; /* Place it below the columns */
+    /* margin-top: 2vh; Optional spacing */
+    text-align: center; /* Center-align the text */
+    font-size: small;
+    color: white;
+    display: none;
+}
 
+.footer0 {
+    width: 20vw; /* Make footer span the full width */
+    /* margin-top: 2vh; Optional spacing */
+    text-align: left; /* Center-align the text */
+    font-size: small;
+    color: #bcbcbc;
+    padding-left: 5vh;
+}
 
 /*************************************************************************************************/
 /* Left Sections */
@@ -55,8 +77,10 @@ body {
 
 /* Logo */
 .logo-img {
-    width: 14vw; /* Adjust size as needed */
+    width: 38vh; /* Adjust size as needed */
     height: auto; /* Maintain aspect ratio */
+    align-items: left;
+    padding-left: 0vh;
 }
 
 
@@ -66,13 +90,23 @@ body {
     justify-content: space-between;
     flex-direction: column;
     align-items: flex-start; /* Align links to the left */
-    padding-left: 1vw;
+    /* padding-left: 5vh; */
+    padding-top: 0vh;
     height: 100%; /* Full height of the left column */  
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white; /* Optional: Add a background color */
+}
+
+.navbar.active {
+    display: flex; /* Show when active */
+    flex-direction: column;
 }
 
 .navbar a {
     display: block;
-    padding: 3vh; /* vertical between navbar */
+    /* padding-top: 3vh; vertical between navbar */
     text-decoration: none;
     transition: background 0.3s;
     font-size: small;
@@ -88,6 +122,11 @@ body {
     color: #000000;
 }
 
+/* .nav-links a.active { */
+    /* font-weight: bold; */
+    /* color: #000; Distinctive color */
+    /* border-bottom: 2px solid black; Underline for emphasis */
+/* } */
 
 .navbar .container {
     display: flex;
@@ -95,13 +134,16 @@ body {
     width: 100%; /* Ensure full width */
 }
 
-
-.nav-item {
-    padding-left: 1.1vw;
+.nav-item0 {
+    /* padding-left: 1.1vw; */
+    padding-left: 5vh;
+    padding-top: 4vh;
 }
 
-.nav-item a {
-    padding: 0.5vh;
+.nav-item {
+    /* padding-left: 1.1vw; */
+    padding-left: 5vh;
+    padding-top: 4vh;
 }
 
 
@@ -205,33 +247,28 @@ body {
 
 
 .sub-menu {
-    padding-left: 0vh; /* Indent sub-level links */
+    padding-top: 0vh;
     display: flex;
     flex-direction: column;
+    /* padding-left: 5vh; */
 }
 
-/* Active sub-menu item */
-.sub-menu a.active {
-    color: #000000; /* Same as hover */
+/* sub-menu item */
+.sub-menu a {
+    padding-top: 1vh;
 }
 
 
 .social-icons {
     display: flex;
+    gap: 3vh; /* Adds consistent spacing between icons */
+    padding-left: 5vh;
+    padding-top: 4vh;
 }
 
 .social-icons i {
     display: inline-block; /* Ensures icons are aligned inline */
     font-size: 28px; /* Adjust size as needed */
-}
-
-
-.footer .container{
-    text-align: left;
-    color: #bcbcbc;
-    font-size: small;
-    padding-bottom: 4vh;
-    padding-left: 4vh;
 }
 
 
@@ -280,25 +317,30 @@ body {
     /* Adjust the main layout to a vertical stack */
     .main-layout {
         flex-direction: column;
+        height: auto; /* Allow height to adjust dynamically */
     }
 
     .left-column, .right-column, .footer {
         width: 100%; /* Full width on mobile */
+        height: auto; /* Let height adjust naturally */
+        padding: 2vh; /* Adjust padding for smaller screens */
+    }
+
+    /* Reorder the layout to place the footer below the right-column (slider) */
+    .left-column {
+    order: 1; /* Place the slider section first */
+    padding-top: 1vh;
+    padding-bottom: 1vh;
     }
 
     /* Reorder the layout to place the footer below the right-column (slider) */
     .right-column {
-        order: 1; /* Place the slider section first */
+        order: 2; /* Place the slider section first */
     }
 
     .footer {
-        order: 2; /* Move the footer below the slider */
+        order: 3; /* Move the footer below the slider */
         margin-top: 2vh; /* Add some space above the footer */
-    }
-
-    .left-column {
-        padding-top: 1vh;
-        padding-bottom: 1vh;
     }
 
     /* Adjust the navigation bar */
@@ -338,9 +380,161 @@ body {
     /* Footer adjustments */
     .footer .container {
         font-size: 3vw; /* Smaller font */
+        color: #bcbcbc;
+    }
+
+    /* Footer adjustments */
+    .footer0 {
+        font-size: 3vw; /* Smaller font */
         color: white;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .logo-img {
+        display: block;
+        margin: 0 auto; /* Center alignment */
+        width: 14vh; /* Adjust size as needed */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .hamburger-menu {
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .navbar {
+        display: none; /* Hide by default */
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background: white;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .navbar.active {
+        display: flex; /* Show when active */
+        flex-direction: column;
+    }
+}
+
+/* Hamburger menu styles */
+.hamburger-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Mobile-specific styles */
+@media only screen and (max-width: 768px) {
+    .right-column {
+        height: 60vh;
+        padding-left: 2vw; /* Add side margins */
+        padding-right: 2vw; /* Add side margins */
+    }
+
+    .left-column {
+        height: 20vh;
+        padding-left: 7vw; /* Add side margins */
+        padding-right: 7vw; /* Add side margins */
+
+    }
+        
+    .hamburger-menu {
+        display: block; /* Show on mobile */
+        padding-left: 7vw;
+    }
+
+    .navbar {
+        display: none; /* Hidden by default */
+    }
+
+    .navbar.active {
+        display: flex; /* Show when active */
+        flex-direction: column;
+        background-color: white; /* Ensure visible background */
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%; /* Full-width menu */
+        z-index: 1000;
+    }
+
+    /* Adjust slider for mobile */
+    .slider {
+        width: 90%; /* Full width */
+        height: 60vh; /* Reduce height for a better fit */
+        margin: 0 auto; /* Center the slider */
+        overflow: hidden;
+        position: relative;
+    }
+
+    .slide img {
+        width: 100%; /* Fit image to the slider width */
+        height: 55vh; /* Match the slider height */
+        object-fit: cover; /* Ensure images fill the slider without distortion */
+        display: block;
+    }
+
+    .slides {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0; /* Initially hidden */
+        transition: opacity 2s ease-in-out; /* Smooth fade effect */
+    }
+}
+
+/* Hide social-icons-mobile by default */
+.social-icons-mobile {
+    display: none; /* Hidden on desktop */
+    order: 3; /* Place it below the columns */
+    padding-top: 0vh;
+}
+
+/* Display social-icons-mobile only on mobile */
+@media only screen and (max-width: 768px) {
+    .social-icons-mobile {
+        display: flex; /* Show on mobile */
+        justify-content: center; /* Center the icons */
+        gap: 3vh; /* Add spacing between icons */
+        margin: 2vh 0; /* Add vertical margin above and below */
+        font-size: 24px; /* Adjust icon size for mobile */
+    }
+    .footer {
+        width: 100%; /* Make footer span the full width */
+        height: 10vh;
+        order: 4; /* Place it below the columns */
+        /* margin-top: 2vh; Optional spacing */
+        text-align: center; /* Center-align the text */
+        font-size: small;
+        color: white;
+        display: inline;
+        padding-bottom: 2vh;
+    }
+    .footer0 {
+        display: none;
+    }
+
+}
+
+
+
 
 
 
