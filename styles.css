@@ -15,6 +15,7 @@ body, h1, h2, p, a {
 body {
     display: flex;
     height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport height */
 }
 
 
@@ -308,45 +309,116 @@ body {
 }
 
 
+/* Hamburger menu styles */
+.hamburger-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+/* Hide social-icons-mobile by default */
+.social-icons-mobile {
+    display: none; /* Hidden on desktop */
+    order: 3; /* Place it below the columns */
+    padding-top: 0vh;
+}
+
+
 
 /*************************************************************************************************/
 /* Mobile-first styles */
 
 
 @media only screen and (max-width: 768px) {
+
+    body {
+        display: flex;
+        width: 100vw; /* Full viewport height */
+    }
+
     /* Adjust the main layout to a vertical stack */
     .main-layout {
         flex-direction: column;
-        height: auto; /* Allow height to adjust dynamically */
+        height: 100%; /* Allow height to adjust dynamically */
+        width: 100%;
     }
 
     .left-column, .right-column, .footer {
-        width: 100%; /* Full width on mobile */
+        width: 98vw; /* Full width on mobile */
         height: auto; /* Let height adjust naturally */
-        padding: 2vh; /* Adjust padding for smaller screens */
+        padding: 2vw; /* Adjust padding for smaller screens */
     }
 
     /* Reorder the layout to place the footer below the right-column (slider) */
     .left-column {
-    order: 1; /* Place the slider section first */
-    padding-top: 1vh;
-    padding-bottom: 1vh;
+        order: 1; /* Place the slider section first */
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+        height: 40vw;
+        padding-left: 7vw; /* Add side margins */
+        padding-right: 7vw; /* Add side margins */
     }
 
     /* Reorder the layout to place the footer below the right-column (slider) */
     .right-column {
         order: 2; /* Place the slider section first */
+        height: 50vh;
+        padding-left: 2vw; /* Add side margins */
+        padding-right: 2vw; /* Add side margins */
     }
 
     .footer {
         order: 3; /* Move the footer below the slider */
-        margin-top: 2vh; /* Add some space above the footer */
+        margin-top: 5vh; /* Add some space above the footer */
+        width: 90%; /* Make footer span the full width */
+        padding: 2vw; /* Adjust padding for smaller screens */
+        height: auto;
+        order: 4; /* Place it below the columns */
+        /* margin-top: 2vh; Optional spacing */
+        text-align: center; /* Center-align the text */
+        font-size: small;
+        color: white;
+        display: inline;
+        padding-bottom: 2vh;
+    }
+
+    /* Footer adjustments */
+    .footer .container {
+        font-size: 3vw; /* Smaller font */
+        color: #bcbcbc;
+    }
+
+    /* Left side Footer invisible */
+    .footer0 {
+        display: none;
     }
 
     /* Adjust the navigation bar */
     .navbar {
         padding: 2vw;
         align-items: center; /* Center the links */
+        display: none; /* Hide by default */
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background: white;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .navbar.active {
+        display: flex; /* Show when active */
+        flex-direction: column;
+        background-color: white; /* Ensure visible background */
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%; /* Full-width menu */
+        z-index: 1000;
     }
 
     .nav-links a {
@@ -355,7 +427,10 @@ body {
     }
 
     .logo-img {
-        width: 40vw; /* Resize logo for smaller screens */
+        display: block;
+        margin: 0 auto; /* Center alignment */
+        width: 30vw; /* Adjust size as needed */
+        height: auto; /* Maintain aspect ratio */
     }
 
     .social-icons i {
@@ -370,114 +445,15 @@ body {
 
     /* Adjust slider section */
     .slider {
-        height: 50vh; /* Reduce height for better fit */
-    }
-
-    .slide img {
-        object-fit: contain; /* Fit images proportionally */
-    }
-
-    /* Footer adjustments */
-    .footer .container {
-        font-size: 3vw; /* Smaller font */
-        color: #bcbcbc;
-    }
-
-    /* Footer adjustments */
-    .footer0 {
-        font-size: 3vw; /* Smaller font */
-        color: white;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .logo-img {
-        display: block;
-        margin: 0 auto; /* Center alignment */
-        width: 14vh; /* Adjust size as needed */
-        height: auto; /* Maintain aspect ratio */
-    }
-
-    .hamburger-menu {
-        display: block;
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        font-size: 2rem;
-        cursor: pointer;
-    }
-
-    .navbar {
-        display: none; /* Hide by default */
-        position: absolute;
-        top: 50px;
-        left: 0;
-        background: white;
-        width: 100%;
-        z-index: 1000;
-    }
-
-    .navbar.active {
-        display: flex; /* Show when active */
-        flex-direction: column;
-    }
-}
-
-/* Hamburger menu styles */
-.hamburger-menu {
-    display: none; /* Hidden by default */
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-/* Mobile-specific styles */
-@media only screen and (max-width: 768px) {
-    .right-column {
-        height: 60vh;
-        padding-left: 2vw; /* Add side margins */
-        padding-right: 2vw; /* Add side margins */
-    }
-
-    .left-column {
-        height: 20vh;
-        padding-left: 7vw; /* Add side margins */
-        padding-right: 7vw; /* Add side margins */
-
-    }
-        
-    .hamburger-menu {
-        display: block; /* Show on mobile */
-        padding-left: 7vw;
-    }
-
-    .navbar {
-        display: none; /* Hidden by default */
-    }
-
-    .navbar.active {
-        display: flex; /* Show when active */
-        flex-direction: column;
-        background-color: white; /* Ensure visible background */
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%; /* Full-width menu */
-        z-index: 1000;
-    }
-
-    /* Adjust slider for mobile */
-    .slider {
-        width: 90%; /* Full width */
-        height: 60vh; /* Reduce height for a better fit */
+        width: 92%; /* Full width */
+        height: 50vh; /* Reduce height for a better fit */
         margin: 0 auto; /* Center the slider */
         overflow: hidden;
         position: relative;
     }
 
     .slide img {
+        /* object-fit: contain; Fit images proportionally */
         width: 100%; /* Fit image to the slider width */
         height: 55vh; /* Match the slider height */
         object-fit: cover; /* Ensure images fill the slider without distortion */
@@ -487,7 +463,7 @@ body {
     .slides {
         display: flex;
         position: relative;
-        width: 100%;
+        width: 100vw;
         height: 100%;
     }
 
@@ -498,37 +474,23 @@ body {
         opacity: 0; /* Initially hidden */
         transition: opacity 2s ease-in-out; /* Smooth fade effect */
     }
-}
 
-/* Hide social-icons-mobile by default */
-.social-icons-mobile {
-    display: none; /* Hidden on desktop */
-    order: 3; /* Place it below the columns */
-    padding-top: 0vh;
-}
+    .hamburger-menu {
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 2rem;
+        cursor: pointer;
+        padding-left: 7vw;
+    }
 
-/* Display social-icons-mobile only on mobile */
-@media only screen and (max-width: 768px) {
     .social-icons-mobile {
         display: flex; /* Show on mobile */
         justify-content: center; /* Center the icons */
         gap: 3vh; /* Add spacing between icons */
         margin: 2vh 0; /* Add vertical margin above and below */
         font-size: 24px; /* Adjust icon size for mobile */
-    }
-    .footer {
-        width: 100%; /* Make footer span the full width */
-        height: 10vh;
-        order: 4; /* Place it below the columns */
-        /* margin-top: 2vh; Optional spacing */
-        text-align: center; /* Center-align the text */
-        font-size: small;
-        color: white;
-        display: inline;
-        padding-bottom: 2vh;
-    }
-    .footer0 {
-        display: none;
     }
 
 }
